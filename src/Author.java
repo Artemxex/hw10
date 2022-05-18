@@ -17,18 +17,21 @@ public class Author {
     public String getSecondName() {
         return this.secondName;
     }
-    public String toString(){
-        return authorName + secondName;
+
+    public String toString() {
+        return authorName + " " + secondName;
     }
 
+
     public boolean equals(Author other) {
-        if (this.getAuthorName() != other.getAuthorName() && this.getSecondName() != other.getSecondName()) {
+        if (other == null || !Objects.equals(this.getAuthorName(), other.getAuthorName()) && !Objects.equals(this.getSecondName(), other.getSecondName())) {
             return false;
         }
         Author kirB = (Author) other;
-        return authorName.equals(kirB.authorName) && secondName.equals(kirB.secondName);
+        return Objects.equals(authorName, kirB.authorName) && Objects.equals(secondName, kirB.secondName);
     }
+
     public int hashCode() {
-        return Objects.hash(authorName + secondName);
+        return Objects.hash(authorName, secondName);
     }
 }

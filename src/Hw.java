@@ -1,7 +1,7 @@
-public class hw {
+public class Hw {
     public static void main(String[] args) {
-        Author kirB = new Author("Кир ", "Булычёв");
-        Author kir = new Author("Кир ", "Булычёв");
+        Author kirB = new Author("Кир", "Булычёв");
+        Author kir = new Author("Кир", "Булычёв");
         Author jules = new Author("Жуль", "Верн");
         System.out.println(kir.equals(kirB));
 
@@ -14,6 +14,6 @@ public class hw {
         System.out.println(island);
 
 
-
     }
+
 }

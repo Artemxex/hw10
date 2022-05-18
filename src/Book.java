@@ -28,18 +28,29 @@ public class Book {
 
     }
 
-    public String toString(){
-        return"Название книги-" + name + "; Автор-" + author + "; Год выпуска-" + year;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return year == book.year && Objects.equals(name, book.name) && Objects.equals(author, book.author);
     }
+
+    public String toString() {
+        return "Название книги-" + name + "; Автор-" + author + "; Год выпуска-" + year;
+    }
+
     public boolean equals(Book other) {
-        if (this.getName() != other.getName() && this.getAuthor() != other.getAuthor() && this.getYear() != other.getYear()) {
+        if (other == null || !Objects.equals(this.getName(), other.getName()) && !Objects.equals(this.getAuthor(), other.getAuthor()) && this.getYear() != other.getYear()) {
             return false;
         }
+        Book book = (Book) other;
         Book alice2 = (Book) other;
-        return name.equals(alice2.name) && author.equals(alice2.author) && year == (alice2.year);
+        return year == book.year && Objects.equals(name, book.name) && Objects.equals(author, book.author);
     }
+
     public int hashCode() {
-        return Objects.hash(name + author + year);
+        return Objects.hash(name, year);
 
     }
 }
