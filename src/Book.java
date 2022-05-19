@@ -32,12 +32,12 @@ public class Book {
         return "Название книги-" + name + "; Автор-" + author + "; Год выпуска-" + year;
     }
 
-    public boolean equals(Book other) {
-        if (other == null || !Objects.equals(this.getName(), other.getName()) && !Objects.equals(this.getAuthor(), other.getAuthor()) && this.getYear() != other.getYear()) {
-            return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        if (!Objects.equals(this.getName(), ((Book) o).getName()) && !Objects.equals(this.getAuthor(), ((Book) o).getAuthor()) && this.getYear() != ((Book) o).getYear()) {
         }
-        Book book = (Book) other;
-        Book alice2 = (Book) other;
         return year == book.year && Objects.equals(name, book.name) && Objects.equals(author, book.author);
     }
 

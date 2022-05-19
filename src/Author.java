@@ -23,12 +23,13 @@ public class Author {
     }
 
 
-    public boolean equals(Author other) {
-        if (other == null || !Objects.equals(this.getAuthorName(), other.getAuthorName()) && !Objects.equals(this.getSecondName(), other.getSecondName())) {
-            return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        if (!Objects.equals(this.getAuthorName(), ((Author) o).getAuthorName()) && !Objects.equals(this.getSecondName(), ((Author) o).getSecondName())) {
         }
-        Author kirB = (Author) other;
-        return Objects.equals(authorName, kirB.authorName) && Objects.equals(secondName, kirB.secondName);
+        return Objects.equals(authorName, author.authorName) && Objects.equals(secondName, author.secondName);
     }
 
     public int hashCode() {
